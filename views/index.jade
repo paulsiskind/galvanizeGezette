@@ -1,0 +1,29 @@
+extends layout
+
+block content
+ 
+ h1.well Welcome to the Wonderful World of Super Marios Tacos
+
+
+
+
+
+ button(type='submit')
+    a(href='/new') New Taco
+
+
+ table.table.table-striped
+    thead
+       tr
+        th Name
+        th Type
+        th Size
+        th Bean
+    tbody
+      for taco in tacos
+        tr
+          td
+            a(href='/'+taco._id)= taco.name
+          td= taco.type
+          td= taco.size
+          td= taco.bean

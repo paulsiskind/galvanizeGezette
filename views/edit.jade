@@ -1,0 +1,34 @@
+extends layout
+
+block content
+
+  h1.well Edit Taco
+
+
+  form(action='/' + theTaco._id + '/update', method='post')
+    .form-group
+       label Name
+       input.form-control(type='text' name='name' value=theTaco.name)
+
+    .form-group
+       label Type
+       input.form-control(type='text' name='type' value=theTaco.type)
+
+    .form-group
+       label Size
+       select.form-control(name='size' value=theTaco.size)
+          option(value='Super' selected=(theTaco.size=="Super" ? 'selected': undefined)) Super
+          option(value='normal' selected=(theTaco.size=="normal" ? 'selected': undefined)) Normal
+          option(value='small' selected=(theTaco.size=="small" ? 'selected': undefined)) Small
+
+    .form-group
+       label Bean
+       select.form-control(name='bean' value=theTaco.bean)
+          option(value='Black' selected=(theTaco.bean=="Black" ? 'selected': undefined)) Black Bean
+          option(value='Pinto' selected=(theTaco.bean=="Pinto" ? 'selected': undefined)) Pinto
+          option(value='refried' selected=(theTaco.bean=="refried" ? 'selected': undefined)) Refried
+    
+    .form-grouo
+      Button(type='submit' class='btn btn-success') Submit
+      button(type='reset' class='btn btn-info')
+         a(href='/') Cancel

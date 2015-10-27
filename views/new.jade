@@ -1,0 +1,36 @@
+extends layout
+
+block content
+
+
+
+  h1.well New Taco
+
+
+  form(action='/', method='post')
+    .form-group
+       label Name
+       input.form-control(type='text' name='name')
+
+    .form-group
+       label Type
+       input.form-control(type='text' name='type')
+
+    .form-group
+       label Size
+       select.form-control(name='size')
+          option(value='Super') Super
+          option(value='normal') Normal
+          option(value='small') Small
+
+    .form-group
+       label Bean
+       select.form-control(name='bean')
+          option(value='Black') Black Bean
+          option(value='Pinto') Pinto
+          option(value='refried') Refried
+    
+    .form-grouo
+      Button(type='submit' class='btn btn-success') Submit
+      button(type='reset' class='btn btn-info')
+         a(href='/new') Reset
