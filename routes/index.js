@@ -4,6 +4,7 @@ var db = require('monk')(process.env.MONGOLAB_URI);
 var stories = db.get('stories');
 var opinions = db.get('opinions')
 
+
 router.get('/stories', function(req, res, next){
   stories.find({}, function(err, data){
     res.json(data);
