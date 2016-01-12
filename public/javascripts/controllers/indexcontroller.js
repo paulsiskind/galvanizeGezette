@@ -11,8 +11,7 @@ app.controller("indexController", function($scope, $http, $location,  $routePara
 })
 
    $http.get('/opinions').then(function (response) {
-        console.log(response)
-        console.log(response.data[0].story_id, "opinions______________")
+       
       $scope.opinion = response.data
 
         for(var e=0; e< $scope.opinion.length; e++){
@@ -21,7 +20,7 @@ app.controller("indexController", function($scope, $http, $location,  $routePara
           }
         }
      
-     console.log($scope.opinions, "<<<<<<<<<<<<tacos>>>>>>>>>>>>>>>>>>")
+    
     var input=[];
    for(var i =0; i<$scope.opinions.length; i++){
     input.push($scope.opinions[i].opinion)
@@ -32,7 +31,7 @@ app.controller("indexController", function($scope, $http, $location,  $routePara
     var output = {}
     for(var i=0;i<string.length;i++){
         console.log(string[i])
-        
+
         if(output[string[i]]){
             output[string[i]]++
         }else{
@@ -43,7 +42,7 @@ app.controller("indexController", function($scope, $http, $location,  $routePara
     
 }
     $scope.words = output
-    console.log($scope.words)   
+   
 })
       
  })
