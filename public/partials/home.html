@@ -1,0 +1,40 @@
+<div class="container">
+
+  <h1>Add A Story</h1>
+
+
+   <li><a href="#" ng-click="showme=!showme">Hide</a></li>
+      <form form method="post" action="/addStory" ng-show="showme">
+          <br>
+          <br>
+          <p>Add a Story
+          <input type="text" class="form-control" name="story"></p>
+          <br>
+          <p>Link
+          <input type="text" class="form-control" name="link"></p>
+          <br>
+          <p>Image URL
+          <input type="text" class="form-control" name="url"></p>
+          <br>
+          <p>Summary
+          <input type="text" class="form-control" name="text"></p>
+          <br>
+          <button type="submit" class="btn btn-success" ng-click="showme=false">Link Up</button>
+     </form>
+
+     <br>
+     <br>
+     <h1>Todays News</h1>
+
+     <div ng-repeat="story in stories">
+
+      <div class="well">
+        <img src='{{story.url}}'/>
+        <p><a href="/stories/{{story._id}}">{{story.story}}</p>
+      </div>
+
+
+     </div>
+
+</div>
+

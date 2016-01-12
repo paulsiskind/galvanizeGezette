@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+.indexJumbo{
+  background: url("http://www.ronedmondson.com/wp-content/uploads/2014/06/church-plant.jpg");
+}
+.indexWell{
+  width: 50%;
+  opacity: .8;
+}
+img{
+  width:20%;
 }

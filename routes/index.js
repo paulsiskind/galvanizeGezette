@@ -1,55 +1,53 @@
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/taco');
-var tacoBag = db.get('taco');
+var db = require('monk')('localhost/stories');
+var stories = db.get('stories');
+var opinions = db.get('opinions')
 
-router.get('/', function(req, res, next){
-  tacoBag.find({}, function(err, data){
-    res.render('index', {tacos:data});
+router.get('/stories', function(req, res, next){
+  stories.find({}, function(err, data){
+    res.json(data);
   });
 });
 
-router.get('/new', function(req, res, next){
-  res.render('new');
+
+router.get('/opinions', function(req, res, next){
+  opinions.find({}, function(err, data){
+    res.json(data);
+  });
+});
+ 
+
+
+router.post('/addStory', function(req, res, next){
+  stories.insert({story: req.body.story,
+                  link: req.body.link,
+                  url: req.body.url,
+                  text: req.body.text
+                  })
+  res.redirect('/');
 });
 
-router.post('/', function(req, res, next){
-  tacoBag.insert({name: req.body.name,
-                  type: req.body.type,
-                  size: req.body.size,
-                  bean: req.body.bean
+router.post('/opinion', function(req, res, next){
+  opinions.insert({opinion: req.body.opinion,
+                  story_id: req.body.id
                   })
   res.redirect('/');
 });
 
 router.get('/:id', function(req, res, next){
-  tacoBag.findOne({_id: req.params.id}, function(err, data){
-    res.render('show', {theTaco: data});
+  stories.findOne({_id: req.params.id}, function(err, data){
+    res.json(data);
   });
 });
 
-router.get('/:id/edit', function(req, res, next){
-  tacoBag.findOne({_id: req.params.id}, function(err, data){
-    res.render('edit', {theTaco: data});
-  });
-});
 
-router.post('/:id/update', function(req, res, next){
-  tacoBag.updateById(req.params.id,{
-                  name: req.body.name,
-                  type: req.body.type,
-                  size: req.body.size,
-                  bean: req.body.bean},
-                   function(err, data){
-  res.redirect('/');
-});
-});
 
-router.post('/:id/delete', function(req, res,next){
-  tacoBag.remove({_id: req.params.id}, function(err, data){
-    res.redirect('/');
-  });
-});
 
+router.get('*', function(req, res, next) {
+  res.sendFile('index.html', {
+    root: __dirname + '/../public/'
+  })
+});
 
 module.exports = router;

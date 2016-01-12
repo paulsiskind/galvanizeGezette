@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>{{story.story}}</h1>
+
+   <img class="col-md-4" src='{{story.url}}'/>
+
+
+   <div class="col-md-8">
+      <p>{{story.text}}</p>
+      <p><a href="{{story.link}}">View Site</p></a>
+   </div>   
+   <br>
+   <br>
+   <br>
+   <br>
+
+
+   <div class="col-md-9">
+    <h1>Opinions</h1>
+
+    <form form method="post" action="/opinion"> 
+      <p>What's Your Opinion</p>
+          <input type="text" class="form-control" name="opinion">
+          <input type="hidden" value="{{params}}" name="id">
+          <br>
+          <button type="submit" class="btn btn-success">Link Up</button>
+    </form>
+
+    <div class='hr' ng-repeat="text in opinions">
+      <p class="well">{{text.opinion}}</p>
+    
+</div>
