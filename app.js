@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('monk')(process.env.MONGOLAB_URI);
 var routes = require('./routes/index');
-// var mongodb = require('mongodb');
+var mongodb = require('mongodb');
 var users = require('./routes/users');
 var app = express();
 
