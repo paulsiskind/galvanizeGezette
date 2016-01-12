@@ -22,16 +22,28 @@ app.controller("indexController", function($scope, $http, $location,  $routePara
         }
      
      console.log($scope.opinions, "<<<<<<<<<<<<tacos>>>>>>>>>>>>>>>>>>")
-
-    // for(var i=0; i<$scope.opinions.length;i++){
-   
-    //  var splitString = $scope.opinions[i].text.split(' ');
-    //   var result = {};
-    //    splitString.forEach(function(char){
-    //    result.hasOwnProperty(char) ? result[char]++ : result[char] = 1; });
-    //     return result; }
-      
-       
+    var input=[];
+   for(var i =0; i<$scope.opinions.length; i++){
+    input.push($scope.opinions[i].opinion)
+    var string = input.join(' ').split(' ')
+  
+   }
+    var temp = [];
+    var output = {}
+    for(var i=0;i<string.length;i++){
+        console.log(string[i])
+        
+        if(output[string[i]]){
+            output[string[i]]++
+        }else{
+            output[string[i]] = 1;
+        }
+     
+    
+    
+}
+    $scope.words = output
+    console.log($scope.words)   
 })
       
  })

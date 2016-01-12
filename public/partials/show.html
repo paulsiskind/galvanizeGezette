@@ -27,5 +27,12 @@
 
     <div class='hr' ng-repeat="text in opinions">
       <p class="well">{{text.opinion}}</p>
-    
+    </div>
+</div>
+<div class="col-md-3 well">
+  <h1>Word Count</h1>
+<div ng-repeat='(key, value) in words'>
+
+  <li>{{key}} : {{value}}</li>
+</div>
 </div>
