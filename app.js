@@ -1,3 +1,4 @@
+require('dotenv').load();
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,7 +8,6 @@ var bodyParser = require('body-parser');
 var db = require('monk')(process.env.MONGOLAB_URI);
 var routes = require('./routes/index');
 var users = require('./routes/users');
-require('dotenv').load();
 var app = express();
 
 // view engine setup
