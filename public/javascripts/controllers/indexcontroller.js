@@ -31,8 +31,23 @@ app.controller("indexController", function($scope, $http, $location,  $routePara
     var output = {}
     for(var i=0;i<string.length;i++){
         console.log(string[i])
+        if(string[i].toLowerCase() == 'it'){
+          temp.push(string[i])
+        }
+        else if(string[i].toLowerCase() == 'is'){
+          temp.push(string[i]);
+        }
+        else if(string[i].toLowerCase() == 'a'){
+          temp.push(string[i]);
+        }
+        else if(string[i].toLowerCase() == 'the'){
+          temp.push(string[i]);
+        }
+        else if(string[i].toLowerCase() == 'hercules'){
+          temp.push(string[i]);
+        }
 
-        if(output[string[i]]){
+        else if(output[string[i]]){
             output[string[i]]++
         }else{
             output[string[i]] = 1;
